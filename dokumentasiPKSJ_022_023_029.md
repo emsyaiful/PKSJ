@@ -15,6 +15,7 @@
 SSH server dan sistem operasi yang digunakan masih dalam keadaan default tanpa ada Firewall maupun konfigurasi untuk melakukan pencegaran terharap serangan.
 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;a. Instalasi host dengan menggunakan Virtualbox.
+<img src="asset/kali_strun.PNG" width="240">;&nbsp;&nbsp;;&nbsp;&nbsp;<img src="asset/ubt_strun.PNG" width="240">
 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Sebelum melakukan serangan kita harus menyiapkan kedua buah sistem operasi yang akan digunakan untuk simulasi. Pertama kita menginstall dulu ubuntu server 14.04. Setelah itu install openSSH-server pada sistem operasi tersebut. 
 ```
@@ -27,7 +28,7 @@ $ sudo apt-get install openssh-server
 
 >IP korban &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;10.151.36.120
 
-![tes_ping](/asset/test_ping.png)
+![tes_ping](asset/test_ping.PNG)
 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Langkah selanjutnya pastikan antara sever korban dan penyerang sudah terhunung.
 Dari sisi penyerang, kita akan melakukan test dahulu apakah port SSH dari server terbuka dengan menggunakan nmap.
@@ -60,6 +61,8 @@ ncrack -t 7 -l [username] -P [pass_dictionary] [host_target] -p [port_victiom]
 
 Kemudian tunggu proses sampai selesai. Jika berhasil maka akan terlihat seperti pada gambar dibawah ini.
 
+![hydra_res](asset/success_hydra.PNG)
+
 - Ncrack
 Perintah untuk melakukan serangan dengan menggunakan aplikasi Ncrack adalah:
 ```
@@ -79,6 +82,8 @@ ncrack -p [servicelist] -u [user_name] -P [pass_dictionary] -T[0-5] [host_target
 
 Hasil yang akan ditampilkan adalah sebagai berikut:
 
+![ncrack_res](asset/success_ncrack.PNG)
+
 - Medusa
 Perintah untuk melakukan serangan dengan aplikasi Medusa adalah:
 ```
@@ -97,6 +102,8 @@ medusa -u [username] -P [pass_dictionary] -h [host_target] -M [modul]
 >-M&nbsp;&nbsp;&nbsp;&nbsp;Modul serangan yang digunakan
 
 Hasilnya akan seperti dibawah ini:
+
+![medusa_res](asset/success_medusa.PNG)
 
 >PS: _diasumsikan username sudah diketahui oleh penyerang._
 
