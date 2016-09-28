@@ -119,7 +119,8 @@ Hasilnya akan seperti dibawah ini:
 - **Install _fail2ban_ **
 Langkah pertama adalah melakukan instalasi _fail2ban_ dengan menggunakan syntax :
 ```**
-apt-get install fail2ban```
+apt-get install fail2ban
+```
 Kemudian dicoba diserang menggunakan _hydra_ diperoleh hasil sebagai berikut :
 
 ![fail2ban_withoutinstall](asset/fail2banwithoutsshconfig.PNG)
