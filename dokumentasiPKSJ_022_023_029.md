@@ -113,4 +113,36 @@ Hasilnya akan seperti dibawah ini:
 
 ##Sekenario 2
 
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Percobaan yang dibuat adalah melakukan serangan _bruteforce_ kepada server dengan alamat IP 10.151.36.120 yang sebelumnya telah dikonfigurasi dengan instalasi _fail2ban_ dan merubah konfigurasi _default ssh_.
+
+####**Uji Serangan**
+- **Install _fail2ban_ **
+Langkah pertama adalah melakukan instalasi _fail2ban_ dengan menggunakan syntax :
+```**
+apt-get install fail2ban```
+Kemudian dicoba diserang menggunakan _hydra_ diperoleh hasil sebagai berikut :
+
+![fail2ban_withoutinstall](asset/fail2banwithoutsshconfig.PNG)
+
+Dari hasil tersebut dapat diamati bahwa **_ssh protocol error_** namun **_username_** dan **_password_** masih dapat ditemukan.
+- **Konfigurasi _ssh_**
+Langkah selanjutnya kemudian melakukan konfigurasi _ssh_ yaitu dengan merubah _port_ yaitu menjadi _port_ **666**
+
+![config_ssh](asset/configssh.png)
+
+![fail2ban_withportchange](asset/fail2banwithsshport.PNG)
+
+Dari hasil percobaan tersebut dapat dilihat bahwa _tools hydra_ tidak dapat melakukan _bruteforce_ pada _port_ yang telah kita ganti.
+- **_Setting Login Attempt_**
+Langkah selanjutnya adalah melakukan konfigurasi _fail2ban_ untuk membatasi batas _login_ sampai 3 kali.
+
+![fail2ban_config](asset/fail2banconfig.png)
+
+dari gambar tersebut dilakukan perubahan pada baris _maxretry_ yaitu 3 untuk melakukan pembatasan _login_ selama 3 kali.
+Hasil pengujian serangannya didapatkan hasil sebagai berikut :
+
+![ssh_fail](asset/sshfail3kali.PNG)
+
+![hydra_fail_3attemp](asset/hydrafail2banattemp3.PNG)
+
+![ncrack_fail_3attemp](asset/ncrackfail2ban3attemp.PNG)
