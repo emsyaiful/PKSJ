@@ -47,7 +47,7 @@ Dari sisi penyerang, kita akan melakukan test dahulu apakah port SSH dari server
 
 Perintah yang digunakan untuk menjalankan Hydra adalah:
 ```
-ncrack -t 7 -l [username] -P [pass_dictionary] [host_target] -p [port_victiom]
+hydra -l [username] -v -t 7 -P [pass_dictionary] [host_target] ssh
 ```
 ```
 # ncrack -u victim -P 500-worst-passwords.txt 10.151.36.120 -p 21
