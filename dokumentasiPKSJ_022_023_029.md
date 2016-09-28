@@ -111,7 +111,8 @@ Hasilnya akan seperti dibawah ini:
 
 >PS: _diasumsikan username sudah diketahui oleh penyerang._
 
->jika mengalami masalah seperti di bawah
+Jika mengalami masalah seperti di bawah ini:
+
 ![medus_res](asset/medusa error.PNG)
 
 >Lakukan perintah copy :
