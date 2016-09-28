@@ -111,6 +111,14 @@ Hasilnya akan seperti dibawah ini:
 
 >PS: _diasumsikan username sudah diketahui oleh penyerang._
 
+>jika mengalami masalah seperti di bawah
+![medus_res](asset/medusa error.PNG)
+
+>Lakukan perintah copy :
+```
+# cp -i /usr/lib/medusa/modules/ssh.mod /usr/local/lib/modules/
+```
+
 ##Sekenario 2
 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Percobaan yang dibuat adalah melakukan serangan _bruteforce_ kepada server dengan alamat IP 10.151.36.120 yang sebelumnya telah dikonfigurasi dengan instalasi _fail2ban_ dan merubah konfigurasi _default ssh_.
