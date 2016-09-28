@@ -15,6 +15,7 @@
 SSH server dan sistem operasi yang digunakan masih dalam keadaan default tanpa ada Firewall maupun konfigurasi untuk melakukan pencegaran terharap serangan.
 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;a. Instalasi host dengan menggunakan Virtualbox.
+
 <img src="asset/kali_strun.PNG" width="240">;&nbsp;&nbsp;;&nbsp;&nbsp;<img src="asset/ubt_strun.PNG" width="240">
 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Sebelum melakukan serangan kita harus menyiapkan kedua buah sistem operasi yang akan digunakan untuk simulasi. Pertama kita menginstall dulu ubuntu server 14.04. Setelah itu install openSSH-server pada sistem operasi tersebut. 
@@ -42,7 +43,8 @@ Dari sisi penyerang, kita akan melakukan test dahulu apakah port SSH dari server
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Sebelum melakukan serangan kita membutuhkan sebuah _dictionary-passwords_ yang digunakan untuk mencoba password yang cocok untuk masuk kedalam server. Disini kita mencoba menggunakan _500-worst-password.txt_ dari [skullsecurity](http://downloads.skullsecurity.org/passwords). 
 
 ####Uji serangan
-- Hydra
+- **Hydra**
+
 Perintah yang digunakan untuk menjalankan Hydra adalah:
 ```
 ncrack -t 7 -l [username] -P [pass_dictionary] [host_target] -p [port_victiom]
@@ -63,7 +65,8 @@ Kemudian tunggu proses sampai selesai. Jika berhasil maka akan terlihat seperti 
 
 ![hydra_res](asset/success_hydra.PNG)
 
-- Ncrack
+- **Ncrack**
+
 Perintah untuk melakukan serangan dengan menggunakan aplikasi Ncrack adalah:
 ```
 ncrack -p [servicelist] -u [user_name] -P [pass_dictionary] -T[0-5] [host_target]
@@ -84,7 +87,8 @@ Hasil yang akan ditampilkan adalah sebagai berikut:
 
 ![ncrack_res](asset/success_ncrack.PNG)
 
-- Medusa
+- **Medusa**
+
 Perintah untuk melakukan serangan dengan aplikasi Medusa adalah:
 ```
 medusa -u [username] -P [pass_dictionary] -h [host_target] -M [modul]
