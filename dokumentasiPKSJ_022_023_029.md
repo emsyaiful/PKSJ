@@ -141,7 +141,7 @@ Langkah selanjutnya kemudian melakukan konfigurasi _ssh_ yaitu dengan merubah _p
 ![config_ssh](asset/configssh.png)
 
 ![fail2ban_withportchange](asset/fail2banwithsshport.PNG)
-![fail2ban_withportchange2](asset/fail2banwithsshport.PNG)
+![fail2ban_withportchange2](asset/medusa_ncrack_gagal.PNG)
 Dari hasil percobaan tersebut dapat dilihat bahwa _tools hydra, ncrack_ dan _medusa_ tidak dapat melakukan _bruteforce_ pada _port_ yang telah kita ganti.
 - **_Setting Login Attempt_**
 Langkah selanjutnya adalah melakukan konfigurasi _fail2ban_ untuk membatasi batas _login_ sampai 3 kali.
