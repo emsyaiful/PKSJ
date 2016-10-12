@@ -55,25 +55,25 @@ Maka akan muncul seperti ini:
 
 ####Uji Coba Dengan Plugin Video Player 1.5.16
 berikut ini adalah tampilan plugin video player 1.5.16
-![videoplayer](asset/tugas2-023/12.png)
+![videoplayer](asset/tugas2-023/12.PNG)
 
 uji coba menggunakan wpscan didapati hasil sebagai berikut
 
-![serang1](asset/tugas2-023/13.png)
+![serang1](asset/tugas2-023/13.PNG)
 
 kemudian akan ditemukan sebuah username yang digunakan untuk login pada website seperti berikut ini :
 
-![serang2](asset/tugas2-023/15.png)
+![serang2](asset/tugas2-023/15.PNG)
 catatan : alamat website adalah alamat website berbeda (dengan IP address 192.168.232.129)
 
 ####Uji Coba Menggunakan League Manager 3.9.1.1
 Pada tahap ini dilakukan instalasi plugin league manager versi 3.9.1.1. berikut ini adalah tampilan plugin league manager 3.9.1.1 ketika sudah diaktifkan :
 
-![league manager 3.9.1.1](asset/tugas2-023/14.png)
+![league manager 3.9.1.1](asset/tugas2-023/14.PNG)
 
 Pada uji coba ini dihasilkan hasil yang sama seperti ketika menggunakan plugin video player 1.5.16
 
-![league](asset/tugas2-023/16.png)
+![league](asset/tugas2-023/16.PNG)
 
 ####Uji Coba Serangan SQL Injection
 
