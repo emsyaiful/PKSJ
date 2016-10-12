@@ -53,3 +53,14 @@ Maka akan muncul seperti ini:
 
 ![wpscan_init](asset/tugas2/wpscan_init.png)
 
+####Uji Coba Dengan Plugin Video Player 1.5.16
+berikut ini adalah tampilan plugin video player 1.5.16
+![videoplayer](asset/tugas2-023/12.png)
+
+uji coba menggunakan wpscan didapati hasil sebagai berikut
+
+![serang1](asset/tugas2-023/13.png)
+
+kemudian akan ditemukan sebuah username yang digunakan untuk login pada website seperti berikut ini :
+
+
