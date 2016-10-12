@@ -63,4 +63,17 @@ uji coba menggunakan wpscan didapati hasil sebagai berikut
 
 kemudian akan ditemukan sebuah username yang digunakan untuk login pada website seperti berikut ini :
 
+![serang2](asset/tugas2-023/15.png)
+catatan : alamat website adalah alamat website berbeda (dengan IP address 192.168.232.129)
+
+####Uji Coba Menggunakan League Manager 3.9.1.1
+Pada tahap ini dilakukan instalasi plugin league manager versi 3.9.1.1. berikut ini adalah tampilan plugin league manager 3.9.1.1 ketika sudah diaktifkan :
+
+![league manager 3.9.1.1](asset/tugas2-023/14.png)
+
+Pada uji coba ini dihasilkan hasil yang sama seperti ketika menggunakan plugin video player 1.5.16
+
+![league](asset/tugas2-023/16.png)
+
+####Uji Coba Serangan SQL Injection
 
