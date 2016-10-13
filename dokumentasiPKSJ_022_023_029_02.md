@@ -130,3 +130,26 @@ Tara, kita mendapatkan hasil username dan password dari login wordpress yang ter
 
 Setelah menjalankan perintah tersebut maka file wp-config.php akan didownload.
 ![getWp-config](asset/tugas2/getWp-config.png)
+
+####Uji Coba Serangan pada Plugin DB Backup
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Pada plugin tersebut terdapat sebuah celah keamanan berupa Arbitrary File Download sehingga kita bisa mendownload file yang seharusnya tidak boleh diakses. Dokumentasi dari celah ini dapat dilihat [disini](https://www.exploit-db.com/exploits/35378/). Cara memanfaatkan celah ini adalah dengan mengetikkan alamat pada browser:
+```
+/wp-content/plugins/db-backup/download.php?file=/etc/passwd
+```
+
+Setelah diakses maka kita mendapat file /etc/passwd yang berisi semua user yang terdaftar pada komputer server.
+
+![DBBackup](asset/tugas2/DBBackup.png)
+
+####Uji Coba Serangan Slideshow Gallery 1.4.6
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Pada plugin ini terdapat celah keamanan berupda upload file. Celah ini sangat berbahaya karena dapat memasukkan backdoor kedalam wordpress. Dokumentasinya dapat dibaca [disini](https://www.exploit-db.com/exploits/34681/). Caramelakukannya dengan menggunakan script python yang sudah ada paga dokumentasi dan jalankan dengan:
+```
+python exploit.py -t http://localhost/wordpress -u testing -p testing -f exploit.php
+```
+
+Jika berhasil akan ada notifikasi seperti berikut ini:
+![uploadEx](asset/tugas2/uploadEx.png)
+
+Dan setelah diakses alamat tersebut akan mengeksekusi exploit yang sudah dihapus.
+
+![akses](asset/tugas2/akses.png)
