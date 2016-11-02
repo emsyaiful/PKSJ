@@ -1,16 +1,22 @@
 ###PENDAHULUAN
 
+sandbox adalah mekanisme keamanan untuk memisahkan program yang sedang berjalan. Istilah ini acap digunakan untuk mengeksekusi kode yang belum diuji, atau program tidak terpercaya yang berasal dari pihak ketiga dan pemasok yang tidak terverifikasi, serta pengguna dan situs web yang tidak terpercaya.
+
+Malware adalah setiap program atau file yang berbahaya (malicious software”) bagi pengguna komputer. Dengan demikian, malware termasuk virus komputeres, worm, Trojan horse , dan juga spyware termasuk malware.
+
 Cuckoo Sandbox adalah malware analysis system yang digunakan untuk menganalisis file yang mencurigakan. Cuckoo akan memberikan hasil yang detail apa yang terjadi saat file dijalankan di dalam lingkungan yang terisolasi.
 
-Install Required Package
+###Instalasi Cuckoo SandBox
+
+####Install Required Package
 
 ```$ sudo apt-get install git mongodb libffi-dev build-essential python-django python python-dev python-pip python-pil python-sqlalchemy python-bson python-dpkt python-jinja2 python-magic python-pymongo python-gridfs python-libvirt python-bottle python-pefile python-chardet tcpdump -y ```
 
-Configuring Tcpdump
+####Configuring Tcpdump
 
 ```$ sudo setcap cap_net_raw,cap_net_admin=eip /usr/sbin/tcpdump```
 
-Installing Yara
+####Installing Yara
 
 ````$ sudo apt-get install autoconf libtool libjansson-dev libmagic-dev libssl-dev -y```
 ```$ wget https://github.com/plusvic/yara/archive/v3.4.0.tar.gz -O yara-3.4.0.tar.gz```
@@ -21,13 +27,13 @@ Installing Yara
 ```$ make```
 ```$ sudo make install```
 
-To build and install the yara-python extension:
+####To build and install the yara-python extension:
 
 ```$ cd yara-python```
 ```$ python setup.py build```
 ```$ sudo python setup.py install```
 
-Installing Pydeep
+####Installing Pydeep
 
 ```$ wget http://sourceforge.net/projects/ssdeep/files/ssdeep-2.13/ssdeep-2.13.tar.gz/download -O ssdeep-2.13.tar.gz```
 ```$ tar -zxf ssdeep-2.13.tar.gz```
@@ -36,7 +42,7 @@ Installing Pydeep
 ```$ make```
 ```$ sudo make install```
 
-Installing Volatility
+####Installing Volatility
 
 ```$ pip install openpyxl```
 ```$ pip install ujson```
@@ -49,13 +55,13 @@ Installing Volatility
 ```$ python setup.py build```
 ```$ python setup.py install```
 
-Installing Cuckoo
+####Installing Cuckoo
 
 ```$ git clone git://github.com/cuckoosandbox/cuckoo.git```
 ```$ useradd cuckoo```
 ```$ sudo chown -R cuckoo:cuckoo /home/$USER/cuckoo```
 
-Configuring Cuckoo
+####Configuring Cuckoo
 
 cuckoo.conf
 
@@ -66,12 +72,12 @@ ip = 192.168.56.1 #IP Address host
 port = 2042 #default setting
 
 auxiliary.conf
-
+```
 [sniffer]
-# Enable or disable the use of an external sniffer (tcpdump) [yes/no].
+Enable or disable the use of an external sniffer (tcpdump) [yes/no].
 enabled = yes
 
-# Specify the path to your local installation of tcpdump. Make sure this
+Specify the path to your local installation of tcpdump. Make sure this
 # path is correct.
 # You can check this using the command: whereis tcpdump
 tcpdump = /usr/sbin/tcpdump
@@ -95,8 +101,8 @@ reporting.conf
 
 [mongodb]
 enabled = yes
-
-Saatnya Run Cuckoo Sandbox
+```
+####Saatnya Run Cuckoo Sandbox
 
 ````$ cd /home/cuckoo/cuckoo```
 ```$ python cuckoo.py```
