@@ -18,7 +18,7 @@ Cuckoo Sandbox adalah malware analysis system yang digunakan untuk menganalisis 
 
 ####Installing Yara
 
-````$ sudo apt-get install autoconf libtool libjansson-dev libmagic-dev libssl-dev -y```
+```$ sudo apt-get install autoconf libtool libjansson-dev libmagic-dev libssl-dev -y```
 ```$ wget https://github.com/plusvic/yara/archive/v3.4.0.tar.gz -O yara-3.4.0.tar.gz```
 ```$ tar -zxf yara-3.4.0.tar.gz```
 ```$ cd yara-3.4.0```
