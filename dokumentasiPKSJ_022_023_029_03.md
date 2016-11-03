@@ -12,11 +12,13 @@ Cuckoo Sandbox adalah malware analysis system yang digunakan untuk menganalisis 
 
 ```$ sudo apt-get install git mongodb libffi-dev build-essential python-django python python-dev python-pip python-pil python-sqlalchemy python-bson python-dpkt python-jinja2 python-magic python-pymongo python-gridfs python-libvirt python-bottle python-pefile python-chardet tcpdump -y ```
 
-![](asset/tugas3-023/install req package.png)
+![install_req_package](asset/tugas3-023/install req package.png)
 
 ####Configuring Tcpdump
 
 ```$ sudo setcap cap_net_raw,cap_net_admin=eip /usr/sbin/tcpdump```
+
+![config tcp dump](asset/tugas3-023/config tcpdumo.png)
 
 ####Installing Yara
 
@@ -29,11 +31,15 @@ Cuckoo Sandbox adalah malware analysis system yang digunakan untuk menganalisis 
 ```$ make```
 ```$ sudo make install```
 
+![install yara](asset/tugas3-023/install yara.png)
+
 ####To build and install the yara-python extension:
 
 ```$ cd yara-python```
 ```$ python setup.py build```
 ```$ sudo python setup.py install```
+
+![install yara-python](asset/tugas3-023/install yara-python.png)
 
 ####Installing Pydeep
 
@@ -43,6 +49,8 @@ Cuckoo Sandbox adalah malware analysis system yang digunakan untuk menganalisis 
 ```$ ./configure```
 ```$ make```
 ```$ sudo make install```
+
+![install pydeep](asset/tugas3-023/install pydeep.png)
 
 ####Installing Volatility
 
@@ -57,11 +65,15 @@ Cuckoo Sandbox adalah malware analysis system yang digunakan untuk menganalisis 
 ```$ python setup.py build```
 ```$ python setup.py install```
 
+![install volatility](asset/tugas3-023/install volatility.png)
+
 ####Installing Cuckoo
 
 ```$ git clone git://github.com/cuckoosandbox/cuckoo.git```
 ```$ useradd cuckoo```
 ```$ sudo chown -R cuckoo:cuckoo /home/$USER/cuckoo```
+
+![install cuckoo](asset/tugas3-023/install cuckoo.png)
 
 ####Configuring Cuckoo
 
