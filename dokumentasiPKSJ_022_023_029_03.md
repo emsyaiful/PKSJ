@@ -12,6 +12,8 @@ Cuckoo Sandbox adalah malware analysis system yang digunakan untuk menganalisis 
 
 ```$ sudo apt-get install git mongodb libffi-dev build-essential python-django python python-dev python-pip python-pil python-sqlalchemy python-bson python-dpkt python-jinja2 python-magic python-pymongo python-gridfs python-libvirt python-bottle python-pefile python-chardet tcpdump -y ```
 
+![](asset/tugas3-023/install req package.png)
+
 ####Configuring Tcpdump
 
 ```$ sudo setcap cap_net_raw,cap_net_admin=eip /usr/sbin/tcpdump```
