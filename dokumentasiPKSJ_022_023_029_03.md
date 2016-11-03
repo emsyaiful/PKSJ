@@ -106,3 +106,86 @@ enabled = yes
 
 ````$ cd /home/cuckoo/cuckoo```
 ```$ python cuckoo.py```
+
+###Percobaan Analysa Malware
+
+####Persiapan
+
+Untuk kali ini kita akan mencoba menganalisis apa yang dilakukan malware yang sudah didapatkan dari website [malwr](http://malwr.com). Malware yang akan kita coba diantaranya:
+- pdfforge Toolbar-4_4_0_setup.exe
+- pdf_creator.exe 
+- malware-windows.exe 
+
+Untuk mengunggah malware dan menjalankannya, dapat mengeksekusi file submit.py. Perintahnya:
+```
+./submit.py [nama_file_malware]
+```
+
+Setelah itu aplikasi cuckoo akan menjalankan virtualisasi windows dan mencatat segala perubahan yang terjadi.
+
+Jika proses eksekusi sudah selesai, hasil dari eksekusi dapat dilihat dari website monitoring yang sudah disediakan cuckooo pada alamat localhost:8000, seperti gambar dibawah ini:
+
+![cuckoo1](asset/tugas3-023/cuckoo_web1.png)
+
+Kemudian buka pada tab Recent. Akan muncul history dan detail dari analisis yang sudah pernah dilakukan.
+
+![cuckoo2](asset/tugas3-023/cuckoo_web2.png)
+
+**Hasil malware-windows.exe **
+
+Malware ini melakukan eksekusi perintah pada Command lince windows dan memunculkan pesan pada cmd.
+
+![mal_win1](asset/tugas3-023/malware_windows_cmd.jpg)
+
+Selain itu juga malware tersebut melakukan perubahan pada registery windows seperti pada gambar dibawah ini:
+
+![mal_win2](asset/tugas3-023/malware_windows_registery.png)
+
+**Hasil pdfforge Toolbar-4_4_0_setup.exe **
+
+Malware ini melakukan installasi pdfforge dan mengakses alamat web yang sudah diset dari malware tersebut.
+Hasil analisisnya seperti:
+
+![mal_pdff1](asset/tugas3-023/malware_pdfforge_activity1.jpg)
+
+![mal_pdff2](asset/tugas3-023/malware_pdfforge_activity2.jpg)
+
+Malware ini juga mwlakukan perubahan pada registry seperti gambar dibawah ini:
+
+![mal_pdff3](asset/tugas3-023/malware_pdfforge_registry.png)
+
+Malware ini juga melakukan kontak dan mengakses beberapa alamat IP seperti dibawah ini:
+
+![mal_pdff4](asset/tugas3-023/malware_pdfforge_network.png)
+
+dan proses yang dijalankan oleh malware ini antara lain:
+
+![mal_pdff5](asset/tugas3-023/malware_pdfforge_proses.png)
+
+**Hasil pdf_creator.exe **
+
+Malware ini akan melakukan eksekusi installasi Net Framework 2.0.
+
+![mal_pdfc1](asset/tugas3-023/malware_pdfcreator_activity1.jpg)
+
+![mal_pdfc2](asset/tugas3-023/malware_pdfcreator_activity2.jpg)
+
+Malware ini juga melakukan akses internet seperti gambar dibawah ini:
+
+![mal_pdfc3](asset/tugas3-023/malware_pdfcreator_network.png)
+
+Files yang diakses antara lain:
+
+![mal_pdfc4](asset/tugas3-023/malware_pdfcreator_files.png)
+
+Registery yang diakses maupun diganti antara lain:
+
+![mal_pdfc5](asset/tugas3-023/malware_pdfcreator_registry.png)
+
+dan proses yang dijalankan antara lain:
+
+![mal_pdfc6](asset/tugas3-023/malware_pdfcreator_proses.png)
+
+dan melakukan perubahan pada registry seperti gambar:
+
+
