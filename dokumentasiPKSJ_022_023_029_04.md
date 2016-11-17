@@ -139,3 +139,30 @@ Edit start.sh and modify the AUTHBIND_ENABLED setting
 Change listen_port to 22 in cowrie.cfg
 
 ![install4](asset/tugas4-023/install9.PNG)
+
+###UJI SERANGAN###
+
+####Nmap###
+
+Lakukan scan jaringan kepada host yang terdapat cowrie :
+```
+$ nmap -sV 192.168.1.111
+```
+
+![nmap](asset/tugas4-023/nmap-kali.PNG)
+
+Setelah dilakukan **scanning** di log cowrie akan menampilkan :
+
+![nmap-cowrie](asset/tugas4-023/nmap-cowrie.PNG)
+
+####Hydra###
+
+Lakukan uji coba serangan kepada ssh host target dengan : 
+```
+$ hydra -l root -v -t 7 -s 2222 -P 500-worst-passwords.txt 192.168.1.111 ssh
+```
+![hydra-ssh](asset/tugas4-023/ssh-root-kali.PNG)
+
+Pada log cowrie akan menampilkan aktifitas apa saja yang dilakukan oleh hydra kepada host seperti gambar di bawah :
+
+![hydra-cowrie](asset/tugas4-023/cowrie-root-hydra.PNG)
