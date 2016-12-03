@@ -32,3 +32,112 @@ Tahap dimana seorang pentester berhasil masuk ke dalam sistem jaringan target da
 Reporting adalah bagian paling penting dalam kegiatan pentest. Seorang pentester menggunakan report (laporan) untuk menjelaskan pada perusahaan mengenai pentesting yang dilakukan seperti : apa yang dilakukan, bagaimana cara melakukannya, resiko yang bisa terjadi dan yang paling utama adalah cara untuk memperbaiki sistemnya.
 
 Penetration testing biasanya menggunakan sebuah tools khusus yang memang dirancang untuk menemukan kelemahan pada sebuah sistem. Tools yang umum digunakan adalah metasploit. Metasploit adalah sebuah framework yang berisi tools-tools yang diperlukan untuk melakukan penetration testing.
+
+###Instalasi Metasploitable
+####Install Oracle Java 8
+```
+sudo add-apt-repository -y ppa:webupd8team/java
+sudo apt-get update
+sudo apt-get -y install oracle-java8-installer
+```
+
+####Install Dependencies
+```
+sudo apt-get install build-essential libreadline-dev libssl-dev libpq5 libpq-dev libreadline5 libsqlite3-dev libpcap-dev git-core autoconf postgresql pgadmin3 curl zlib1g-dev libxml2-dev libxslt1-dev vncviewer libyaml-dev curl zlib1g-dev
+```
+
+####Install Ruby
+```
+curl -sSL https://rvm.io/mpapis.asc | gpg2 --import -
+curl -L https://get.rvm.io | bash -s stable
+source ~/.rvm/scripts/rvm
+echo "source ~/.rvm/scripts/rvm" >> ~/.bashrc
+source ~/.bashrc
+RUBYVERSION=$(wget https://raw.githubusercontent.com/rapid7/metasploit-framework/master/.ruby-version -q -O - )
+rvm install $RUBYVERSION
+rvm use $RUBYVERSION --default
+ruby -v
+```
+
+####Install Nmap
+```
+mkdir ~/Development
+cd ~/Development
+git clone 
+cd nmap https://github.com/nmap/nmap.git
+./configure
+make
+sudo make install
+make clean
+```
+
+####Config Postgre SQL Server
+```
+sudo -s
+su postgres
+```
+Create user and database
+```
+createuser msf -P -S -R -D
+createdb -O msf msf
+exit
+exit
+```
+
+####Install Metasploit Framework
+```
+cd /opt
+sudo git clone https://github.com/rapid7/metasploit-framework.git
+sudo chown -R `whoami` /opt/metasploit-framework
+cd metasploit-framework
+```
+
+```
+cd metasploit-framework
+
+# If using RVM set the default gem set that is create when you navigate in to the folder
+rvm --default use ruby-${RUByVERSION}@metasploit-framework
+
+gem install bundler
+bundle install
+```
+```
+cd metasploit-framework
+sudo bash -c 'for MSF in $(ls msf*); do ln -s /opt/metasploit-framework/$MSF /usr/local/bin/$MSF;done'
+```
+
+####Install Armitage
+```
+curl -# -o /tmp/armitage.tgz http://www.fastandeasyhacking.com/download/armitage150813.tgz
+sudo tar -xvzf /tmp/armitage.tgz -C /opt
+sudo ln -s /opt/armitage/armitage /usr/local/bin/armitage
+sudo ln -s /opt/armitage/teamserver /usr/local/bin/teamserver
+sudo sh -c "echo java -jar /opt/armitage/armitage.jar \$\* > /opt/armitage/armitage"
+sudo perl -pi -e 's/armitage.jar/\/opt\/armitage\/armitage.jar/g' /opt/armitage/teamserver
+```
+create database.yml
+```
+sudo nano /opt/metasploit-framework/config/database.yml
+```
+copy YAML entries
+```
+production:
+ adapter: postgresql
+ database: msf
+ username: msf
+ password: [some password here]
+ host: 127.0.0.1
+ port: 5432
+ pool: 75
+ timeout: 5
+```
+```
+sudo sh -c "echo export MSF_DATABASE_CONFIG=/opt/metasploit-framework/config/database.yml >> /etc/profile"
+
+source /etc/profile
+```
+
+####Running Metasploit
+```
+msfconsole
+```
