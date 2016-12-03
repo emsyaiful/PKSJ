@@ -40,11 +40,19 @@ sudo add-apt-repository -y ppa:webupd8team/java
 sudo apt-get update
 sudo apt-get -y install oracle-java8-installer
 ```
+![oracle](asset/tugas5-023/1.png)
+
+![oracle-8](asset/tugas5-023/2.png)
+
+![oracle](asset/tugas5-023/3.png)
+
+![oracle](asset/tugas5-023/4.png)
 
 ####Install Dependencies
 ```
 sudo apt-get install build-essential libreadline-dev libssl-dev libpq5 libpq-dev libreadline5 libsqlite3-dev libpcap-dev git-core autoconf postgresql pgadmin3 curl zlib1g-dev libxml2-dev libxslt1-dev vncviewer libyaml-dev curl zlib1g-dev
 ```
+![dependencies](asset/tugas5-023/5.png)
 
 ####Install Ruby
 ```
@@ -58,6 +66,10 @@ rvm install $RUBYVERSION
 rvm use $RUBYVERSION --default
 ruby -v
 ```
+![ruby](asset/tugas5-023/6.png)
+
+![Nmap](asset/tugas5-023/7.png)
+
 
 ####Install Nmap
 ```
@@ -70,6 +82,7 @@ make
 sudo make install
 make clean
 ```
+
 
 ####Config Postgre SQL Server
 ```
