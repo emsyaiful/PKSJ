@@ -154,3 +154,33 @@ source /etc/profile
 ```
 msfconsole
 ```
+
+###EKSPLOITASI
+####Eksploitasi dengan drb_remote_codeexec
+jalankan Metasploitable pada virtualbox, set network pada host-only
+
+![host_only](asset/tugas5-023/24.png)
+
+scan dengan nmap pada jaringan host-only yang sedang aktif
+```
+nmap -sP [network host only]
+```
+![nmap](asset/tugas5-023/15.png)
+
+maka akan didapatkan host yang aktif (kemungkinan adalah vm metasploitable)
+scan menggunakan nmap untuk mengetahui port yang terbuka
+```
+nmap -sV [IP address target]
+```
+
+![nmap2](asset/tugas5-023/16.png)
+
+![nmap2](asset/tugas5-023/17.png)
+
+atau lebih detail dengan menggunakan
+```
+nmap -p 1-65535 -A [IP address target]
+```
+![host_only](asset/tugas5-023/18.png)
+
+target untuk exploit **drb_remote_execcode** adalah berada pada port **8787** 
