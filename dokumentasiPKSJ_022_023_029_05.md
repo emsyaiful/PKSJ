@@ -207,9 +207,9 @@ Setelah itu penyerang dapat melakukan apapun dalam shell korban seperti di bawah
 
 ![druby](asset/tugas5-023/berhasil3.PNG)
 
-![druby](asset/tugas5-023/berhasil4PNG)
+![druby](asset/tugas5-023/berhasil4.PNG)
 
-![druby](asset/tugas5-023/berhasil5PNG)
+![druby](asset/tugas5-023/berhasil5.PNG)
 
 ####Eksploitasi dengan distcc_exec
 
