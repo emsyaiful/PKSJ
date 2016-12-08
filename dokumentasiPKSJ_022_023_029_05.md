@@ -209,8 +209,6 @@ Setelah itu penyerang dapat melakukan apapun dalam shell korban seperti di bawah
 
 ![druby](asset/tugas5-023/berhasil4.PNG)
 
-![druby](asset/tugas5-023/berhasil5.PNG)
-
 ####Eksploitasi dengan distcc_exec
 
 Untuk melakukan serangan pertama buka **msfconsole** kemudian kita gunakan perintah seperti gambar dibawah ini:
