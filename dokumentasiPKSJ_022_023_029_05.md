@@ -183,7 +183,33 @@ nmap -p 1-65535 -A [IP address target]
 ```
 ![host_only](asset/tugas5-023/18.png)
 
-target untuk exploit **drb_remote_execcode** adalah berada pada port **8787** 
+target untuk exploit **drb_remote_codeexec** adalah berada pada port **8787** 
+
+####Eksploitasi dengan drb_remote_codeexec
+
+Untuk melakukan serangan pertama buka **msfconsole** kemudian kita gunakan perintah seperti gambar dibawah ini:
+
+![msfconsole](asset/tugas5-023/msfconsole_open.PNG)
+
+![drb_remote_codeexec](asset/tugas5-023/drb_remote_codeexec.PNG)
+
+Penjelasan perintah tersebut adalah sebagai berikut:
+>Exploit : exploit/linux/misc/drb_remote_codeexec
+>Payload : cmd/unix/reverse
+>druby : ip target
+
+Exploit tersebut akan mengeksekusi port 8787 yang dibuka oleh service drb_remote. Kemudian exploit tersebut akan membuka koneksi dengan penyerang dan membuka shell korban. Shell langsung menjalankan dengan privilege root. Maka setelah melakukan exploit akan didapatkan hasil seperti dibawah ini :
+
+![druby](asset/tugas5-023/druby_berhasil.PNG)
+
+Setelah itu penyerang dapat melakukan apapun dalam shell korban seperti di bawah :
+
+
+![druby](asset/tugas5-023/berhasil3.PNG)
+
+![druby](asset/tugas5-023/berhasil4PNG)
+
+![druby](asset/tugas5-023/berhasil5PNG)
 
 ####Eksploitasi dengan distcc_exec
 
